@@ -1,18 +1,23 @@
-import {HashRouter as Router, Switch, Route} from 'react-router-dom';
-import 'upkit/dist/style.min.css';
-import Checkout from './pages/Checkout';
-import Home from './pages/Home';
-import Invoice from './pages/Invoice';
-import Login from './pages/Login';
-import Logout from './pages/Logout';
-import Register from './pages/Register';
-import RegisterSuccess from './pages/RegisterSuccess';
-import UserAccount from './pages/UserAccount';
-import UserAddress from './pages/UserAddress';
-import UserAddressAdd from './pages/UserAddressAdd';
-import UserOrder from './pages/UserOrder';
+import { useEffect } from "react";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import "upkit/dist/style.min.css";
+import { listen } from "./app/listener";
+import Checkout from "./pages/Checkout";
+import Home from "./pages/Home";
+import Invoice from "./pages/Invoice";
+import Login from "./pages/Login";
+import Logout from "./pages/Logout";
+import Register from "./pages/Register";
+import RegisterSuccess from "./pages/RegisterSuccess";
+import UserAccount from "./pages/UserAccount";
+import UserAddress from "./pages/UserAddress";
+import UserAddressAdd from "./pages/UserAddressAdd";
+import UserOrder from "./pages/UserOrder";
 
 function App() {
+  useEffect(() => {
+    listen();
+  }, []);
   return (
     <Router>
       <Switch>
