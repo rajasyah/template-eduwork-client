@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Button, CardItem, Text } from "upkit";
 import { FaArrowRight, FaCartPlus } from "@meronex/icons/fa";
 import { config } from "../../config";
+import { formatRupiah, sumPrice } from "../../app/utils";
 
 function Cart({ items, onItemInc, onItemDec, onCheckout }) {
   return (
@@ -13,7 +14,7 @@ function Cart({ items, onItemInc, onItemDec, onCheckout }) {
           <div className="ml-2">Keranjang</div>
         </div>
 
-        <Text as="h5">Total: Rp. 32.000</Text>
+        <Text as="h5">Total: {formatRupiah(sumPrice(items))}</Text>
         <Button
           text="Checkout"
           fitContainer
